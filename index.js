@@ -1,18 +1,11 @@
 const express = require('express');
+const bodyParser = require('body-parser');
 const app = express();
-const router = express.Router();
 
-app.get('/', function(req, res) {
-  res.send('hello world!');
-});
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
 
-app.get('/products', function(req, res) {
-  res.send('Listar produtos!');
-});
-
-app.post('/register', function(req, res) {
-  res.send('registrar usario');
-});
+require('./app/controllers/auth')(app);
 
 app.listen(3000, function() {
   console.log('porta 3000')
