@@ -1,0 +1,23 @@
+{
+  "name": "api-wineblue",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lcassiano1612/api-wineblue.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lcassiano1612/api-wineblue/issues"
+  },
+  "homepage": "https://github.com/lcassiano1612/api-wineblue#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1"
+  }
+}
