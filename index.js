@@ -1,13 +1,19 @@
 const express = require('express');
-const bodyParser = require('body-parser');
-const port = process.env.PORT || 3000;
 const app = express();
+const router = express.Router();
 
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
-
-app.get('/', (req, res) => {
-  res.send('OK Lucas');
+app.get('/', function(req, res) {
+  res.send('hello world!');
 });
 
-app.listen(port);
+app.get('/products', function(req, res) {
+  res.send('Listar produtos!');
+});
+
+app.post('/register', function(req, res) {
+  res.send('registrar usario');
+});
+
+app.listen(3000, function() {
+  console.log('porta 3000')
+});
