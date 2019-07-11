@@ -9,4 +9,5 @@ const CONNECTION_DB = MYSQL.createPool({
   port: '3306'
 });
 
+
 module.exports = CONNECTION_DB;
