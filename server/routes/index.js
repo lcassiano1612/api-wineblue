@@ -41,8 +41,8 @@ getProductWinehouse = () => {
 
 // GET INFO PACKAGE FOR MOUNT KITS
 ROUTER.get('/info-kits', async (req, res, next) => {
-  try {
-    let DB = {};
+  debugger;
+  let DB = {};
     DB.all = () => {
       return new Promise((resolve, reject) => {
         CONNECTION_DB.query(`SELECT * FROM package`, (err, results) => {
@@ -55,19 +55,35 @@ ROUTER.get('/info-kits', async (req, res, next) => {
       });
     }
     res.json(await DB.all());
-  } catch(e) {
-    console.log(e);
-    res.sendStatus(500);
-  }
+  // try {
+  //   debugger;
+  //   let DB = {};
+  //   DB.all = () => {
+  //     return new Promise((resolve, reject) => {
+  //       CONNECTION_DB.query(`SELECT * FROM package`, (err, results) => {
+  //         if (err) {
+  //           return reject(err);
+  //         } else {
+  //           return resolve(results);
+  //         }
+  //       });
+  //     });
+  //   }
+  //   res.json(await DB.all());
+  // } catch(e) {
+  //   console.log(e);
+  //   // res.sendStatus(500);
+  // }
 });
 
 //LIST PRODUCTS
 ROUTER.get('/products/list', async (req, res, next) => {
   try {
+    debugger;
     res.json(await getProductWinehouse());
   } catch(e) {
     console.log(e);
-    res.sendStatus(500);
+    // res.sendStatus(500);
   }
 });
 
