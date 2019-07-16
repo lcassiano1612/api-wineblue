@@ -3,11 +3,49 @@ const ROUTER = EXPRESS.Router();
 
 const CONNECTION_DB = require('../db');
 
-ROUTER.get('/', async (req, res, next) => {
-  res.json({
-    nome: 'Luna',
-    sobreNome: 'Braga de Oliveira'
+getProductWinehouse = () => {
+  return new Promise((resolve, reject) => {
+    CONNECTION_DB.query(
+      ` SELECT 
+            a.id,
+            a.name,
+            a.graduation,
+            b.price,
+            c.name as name_country,
+            d.name as name_winehouse,
+            e.path as image
+          FROM 
+            product a, 
+            winehouse_product b,
+            country c,
+            winehouse d,
+            image e
+          WHERE 
+            a.id = b.id_product 
+            and
+            e.id = a.id_image_thumb
+            and
+
+            c.id = a.id_country
+            and 
+            d.id = b.id_winehouse
+
+      `, 
+      (err, result) => {
+        if (err) {
+          return reject(err);
+        } else {
+          return resolve(result);
+        }            
+      }
+    );
   });
+}
+
+ROUTER.get('/', async (req, res, next) => {
+  const PRODUCTS = await getProductWinehouse();
+  
+  res.json(PRODUCTS);
 });
 
 ROUTER.get('/product/list', async (req, res, next) => {
@@ -18,42 +56,6 @@ ROUTER.get('/product/list', async (req, res, next) => {
 });
 
 module.exports = ROUTER;
-
-// getProductWinehouse = () => {
-//   return new Promise((resolve, reject) => {
-//     CONNECTION_DB.query(` SELECT 
-//                             a.id,
-//                             a.name,
-//                             a.graduation,
-//                             b.price,
-//                             c.name as name_country,
-//                             d.name as name_winehouse,
-//                             e.path as image
-//                           FROM 
-//                             product a, 
-//                             winehouse_product b,
-//                             country c,
-//                             winehouse d,
-//                             image e
-//                           WHERE 
-//                             a.id = b.id_product 
-//                             and
-//                             e.id = a.id_image_thumb
-//                             and
-
-//                             c.id = a.id_country
-//                             and 
-//                             d.id = b.id_winehouse
-
-//                       `, (err, result) => {
-//       if (err) {
-//         return reject(err);
-//       } else {
-//         return resolve(result);
-//       }            
-//     });
-//   });
-// }
 
 // // GET INFO PACKAGE FOR MOUNT KITS
 // ROUTER.get('/info-kits', async (req, res, next) => {
