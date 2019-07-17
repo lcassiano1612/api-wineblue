@@ -1,13 +1,10 @@
 const MYSQL = require('mysql');
 
-const CONNECTION_DB = MYSQL.createPool({
-  connectionLimit: 10,
+const CONNECTION_DB = MYSQL.createConnection({
+  host: 'mysql.winebay.com.br',
   user: 'winebay',
   password: 't3w3q0',
-  database: 'winebay',
-  host: 'mysql.winebay.com.br',
-  port: '3306'
+  database: 'winebay'
 });
-
 
 module.exports = CONNECTION_DB;
