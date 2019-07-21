@@ -3,7 +3,7 @@ const ROUTER = EXPRESS.Router();
 
 const CONNECTION_DB = require('../db');
 
-ROUTER.post('/package/edit', (request, response) => {
+ROUTER.put('/package/edit', (request, response) => {
 
 
   CONNECTION_DB.query(`UPDATE package SET size = ? WHERE id = ?`, [request.query.size, request.query.id]);
