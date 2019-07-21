@@ -15,12 +15,12 @@ APP.use(EXPRESS.json());
 APP.use(API_URL, API_ROUTES);
 APP.use(BODY_PARSER.json());
 APP.use(BODY_PARSER.urlencoded({extended: true}));
-APP.use(function(req, res, next) {
-  res.header('Access-Control-Allow-Origin', '*');
-  res.header('Access-Control-Allow-Methods', 'GET, PUT, POST, DELETE');
-  res.header('Access-Control-Allow-Headers', 'Content-Type');
-  next();
-});
+// APP.use(function(req, res, next) {
+//   res.header('Access-Control-Allow-Origin', '*');
+//   res.header('Access-Control-Allow-Methods', 'GET, PUT, POST, DELETE');
+//   res.header('Access-Control-Allow-Headers', 'Content-Type');
+//   next();
+// });
 
 
 APP.listen(PORT, () => {
