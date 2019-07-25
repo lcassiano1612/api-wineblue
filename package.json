@@ -1,26 +1,28 @@
 {
   "name": "api-wineblue",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "api for wineblue site",
   "scripts": {
-    "dev": "node server/server.js",
-    "start": "node server/server.js"
+    "dev": "nodemon server.js",
+    "start": "nodemon server.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/lcassiano1612/api-wineblue.git"
   },
-  "author": "",
+  "author": "Lucas de Oliveira",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/lcassiano1612/api-wineblue/issues"
   },
   "homepage": "https://github.com/lcassiano1612/api-wineblue#readme",
   "dependencies": {
-    "body-parser": "^1.19.0",
-    "cors": "^2.8.5",
     "express": "^4.17.1",
-    "mysql": "^2.17.1"
+    "mysql": "^2.17.1",
+    "mysql2": "^1.6.5",
+    "socksjs": "^0.5.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.1"
   }
 }
