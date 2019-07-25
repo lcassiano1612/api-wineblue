@@ -4,6 +4,7 @@ const DB = require('../database');
 
 ROUTER.get('/', (request, result, next) => {
   DB.getConnection(function gotConnection(err, connection) {
+    console.log('opa');
 
     if (err) throw err;
   
@@ -17,7 +18,7 @@ ROUTER.get('/', (request, result, next) => {
   
         console.log('MySQL/MariaDB version: ', rows);
         connection.release();
-        process.exit();
+        // process.exit();
     });
   }
 
