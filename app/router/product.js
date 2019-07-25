@@ -6,7 +6,7 @@ ROUTER.get('/', (request, result, next) => {
   DB.getConnection(function gotConnection(err, connection) {
     console.log('opa');
 
-    if (err) throw err;
+    console.log(err);
   
     queryVersion(connection);
   });
