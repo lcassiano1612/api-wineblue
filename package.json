@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "description": "api for wineblue site",
   "scripts": {
-    "dev": "nodemon server.js",
-    "start": "nodemon server.js"
+    "dev": "node server.js",
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
